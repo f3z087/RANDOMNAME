@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class SendFreightDriver2 {
 		 * 
 		 * }
 		 */
-		String filePath = SendFreightDriver.class.getResource("example.json").getPath();
+		String filePath = SendFreightDriver2.class.getResource("example.json").getPath();
 		shipments = readInShipments(filePath);
 
 	}
@@ -94,6 +95,8 @@ public class SendFreightDriver2 {
 					Long receiptDate = (Long) innerObject.get("receipt_date");
 					System.out.println(receiptDate);
 
+					Date currDate = new Date(receiptDate);
+
 					Long weight = (long) 0.00;
 					if (tempWeight instanceof Double) {
 						weight = ((Double) tempWeight).longValue();
@@ -102,7 +105,9 @@ public class SendFreightDriver2 {
 					}
 
 					Shipment shipment = new Shipment(warehouseId, shipmentMethod, shipmentId, weight);
+
 					if (shipment.getWeight() != 0.00) {
+						shipment.setReceiptDate(currDate);
 						shipments.add(shipment);
 					}
 
