@@ -1,0 +1,31 @@
+{
+	"warehouse_contents": [{
+			"warehouse_id": "12513",
+			"shipment_method": "air",
+			"shipment_id": "48934j",
+			"weight": 84,
+			"receipt_date": 1515354694451
+		},
+		{
+			"warehouse_id": "15566",
+			"shipment_method": "truck",
+			"shipment_id": "1adf4",
+			"weight": 354,
+			"receipt_date": 1515354694451
+		},
+		{
+			"warehouse_id": "15566",
+			"shipment_method": "ship",
+			"shipment_id": "1a545",
+			"weight": 20.6,
+			"receipt_date": 1515354694451
+		},
+		{
+			"warehouse_id": "336558",
+			"shipment_method": "rail",
+			"shipment_id": "85545",
+			"weight": 760,
+			"receipt_date": 1515354694451
+		}
+	]
+}
