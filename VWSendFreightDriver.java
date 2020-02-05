@@ -17,9 +17,11 @@ import org.json.simple.parser.ParseException;
 import edu.metrostate.ics372.snowywhitemn.VWShipment.ShipmentMethod;
 
 /**
- * Using j simple
+ * Driver class of the program. Program for a transportation company that sends
+ * freight. Administrators will be able to record shipments that arrive at the
+ * various warehouses.
  * 
- * @author vwhite
+ * @author RANDOMNAME Group (https://github.com/f3z087/RANDOMNAME)
  *
  */
 public class VWSendFreightDriver {
@@ -74,11 +76,7 @@ public class VWSendFreightDriver {
 
 	}
 
-	/**
-	 * @param filePath
-	 * @return
-	 */
-	public static List<VWShipment> readInShipments(String filePath) {
+	private static List<VWShipment> readInShipments(String filePath) {
 		List<VWShipment> shipments = new ArrayList<>();
 
 		// https://www.javaguides.net/2019/07/jsonsimple-tutorial-read-and-write-json-in-java.html
