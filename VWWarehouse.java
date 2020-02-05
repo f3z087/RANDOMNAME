@@ -8,9 +8,9 @@ import java.util.List;
 import org.json.simple.JSONArray;
 
 /**
- * Class represents a warehouse
+ * Class represents a warehouse object
  * 
- * @author Victoria White
+ * @author RANDOMNAME Group (https://github.com/f3z087/RANDOMNAME)
  *
  */
 public class VWWarehouse {
