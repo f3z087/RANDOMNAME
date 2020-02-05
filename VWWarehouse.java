@@ -52,21 +52,11 @@ public class VWWarehouse {
 	}
 
 	/**
-	 * Sets the freight receipt boolean value based on if the warehouse is currently
-	 * accepting shipments.
-	 * 
-	 * @param freightReceipt
-	 */
-	public void setFreightReceipt(boolean freightReceipt) {
-		this.freightReceipt = freightReceipt;
-	}
-
-	/**
 	 * Sets freight receipt value to true, indicating that the warehouse can
 	 * received more shipments.
 	 */
 	public void enableFreightReceipt() {
-		setFreightReceipt(true);
+		freightReceipt = true;
 
 	}
 
@@ -75,7 +65,7 @@ public class VWWarehouse {
 	 * able to receive anymore shipments.
 	 */
 	public void endFreightReceipt() {
-		setFreightReceipt(false);
+		freightReceipt = false;
 
 	}
 
@@ -104,8 +94,14 @@ public class VWWarehouse {
 	 * @param shipment
 	 */
 	public void addIncomingShipment(VWShipment shipment) {
-		// add shipment to list of shipments
-		listOfShipments.add(shipment);
+		// if freight receipt is allowed then add the shipment
+		if (this.freightReceipt == true) {
+			// add shipment to list of shipments
+			listOfShipments.add(shipment);
+		} else {
+			System.out.println("Freight Receipt is not enabled for this warehouse" + shipment.getWarehouseId() + "/n"
+					+ "Shipment was not added" + shipment.getShipmentId());
+		}
 
 	}
 
