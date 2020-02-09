@@ -1,30 +1,65 @@
+/**
+ * shipment object class
+ * methods for shipment objects
+ */
 import java.sql.Timestamp;    
 import java.util.Date;
 
 public class Shipment {
 
+	private String shipmentID;
 	private String warehouseID;
 	private String shipmentMethod;
-	private String shipmentID;
 	private long weight;
 	private long receiptDate;
 
-	public Shipment(String warehouseID, String shipmentMethod, String shipmentID, long weight, long receiptDate){
+	/**
+	 * constructor for shipment object
+	 * @param shipmentID
+	 * @param warehouseID
+	 * @param shipmentMethod
+	 * @param weight
+	 * @param receiptDate
+	 */
+	public Shipment(String shipmentID, String warehouseID, String shipmentMethod, long weight, long receiptDate){
+		this.shipmentID = shipmentID;
 		this.warehouseID = warehouseID;
 		this.shipmentMethod = shipmentMethod;
-		this.shipmentID = shipmentID;
 		this.weight = weight;
 		this.receiptDate = receiptDate;
 	}
+	
+	/**
+	 *support 4 different types of shipping methods
+	 */
+	public enum ShipmentMethod {
+		air, truck, ship, rail;
+	}
 
+	/**
+	 * Getter methods
+	 */
+	public String getShipmentID(){return this.shipmentID;}
 	public String getWarehouseID(){return this.warehouseID;}
 	public String getShipmentMethod(){return this.shipmentMethod;}
-	public String getShipmentID(){return this.shipmentID;}
-	public long getweight(){return this.weight;}
+	public long getWeight(){return this.weight;}
+	public long getDateInMS(){return this.receiptDate;}
 	public Date getDate(){
 		Timestamp ts = new Timestamp(this.receiptDate);  
 		Date date = ts;  
 		return date; 
+	}
+
+	/**
+	 * displays all contents in shipment
+	 */
+	@Override
+	public String toString(){
+		String output = "";
+		output += "Shipment ID: " + this.getShipmentID() + "\nWarehouse ID: " + this.getWarehouseID() + 
+				"\nShipment method: " + this.getShipmentMethod() + "\nWeight: " + this.getWeight() + 
+				"\nDate: " + this.getDate() + "\n";
+		return output;
 	}
 
 }

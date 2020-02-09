@@ -1,12 +1,10 @@
 /**
- * Choose file from directory
- * @author Kenji Thao
- *
+ * choose file using jfilechooser
+ * saving directory of file to write to
+ * 
  */
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.Scanner;
 import javax.swing.JFileChooser;
 
 public class ChooseFile  {
@@ -18,7 +16,7 @@ public class ChooseFile  {
 	/**
 	 * choose file
 	 * save directory of file
-	 * @throws Exception
+	 * @throws FileNotFoundException
 	 */
 	public void openFile() throws FileNotFoundException{
 
