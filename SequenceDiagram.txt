@@ -1,0 +1,23 @@
+title Add Incoming Shipment Operation
+
+Person->Interface: add shipment
+
+
+
+
+Interface->+Shipment: getWarehouseID
+Shipment-->-Interface: warehouseID
+
+
+Interface->Warehouse: getWarehouseStatus
+
+alt 
+    Warehouse-->Interface: Freight receipt ended
+    Interface->Person: Add shipment failed
+else 
+    Warehouse-->Interface: Freight receipt allowed
+    Interface->Warehouse: addIncomingShipment
+    Interface->Person: Add shipment successful
+end
+
+
