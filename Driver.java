@@ -58,7 +58,7 @@ public class Driver
 			String warehouseID = (String) content.get("warehouse_id"); 
 			String shipmentMethod = (String) content.get("shipment_method"); 
 			String shipmentID = (String) content.get("shipment_id"); 
-			long weight = (long) content.get("weight"); 
+			Number weight = (Number) content.get("weight"); 
 			long receiptDate = (long) content.get("receipt_date");
 			warehouseArr.add(new Warehouse(warehouseID, shipmentID, weight));
 			shipmentArr.add(new Shipment(shipmentID, warehouseID, shipmentMethod, weight, receiptDate));
@@ -168,7 +168,7 @@ public class Driver
 												while(!quit){
 													String warehouseID = inputWarehouseID;
 
-													System.out.println("Enter shipment method (air/rail/ship/truck");	
+													System.out.println("Enter shipment method (air/rail/ship/truck)");	
 													userInput = scan.nextLine();
 													String shipmentMethod = userInput;
 
@@ -178,7 +178,7 @@ public class Driver
 
 													System.out.println("Enter weight (number only)");
 													userInput = scan.nextLine();
-													long weight = Long.parseLong(userInput);
+													Number weight = Double.parseDouble(userInput);
 
 													Date date = new Date();
 													long receiptDate = date.getTime();

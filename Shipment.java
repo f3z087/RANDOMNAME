@@ -10,7 +10,7 @@ public class Shipment {
 	private String shipmentID;
 	private String warehouseID;
 	private String shipmentMethod;
-	private long weight;
+	private Number weight;
 	private long receiptDate;
 
 	/**
@@ -21,7 +21,7 @@ public class Shipment {
 	 * @param weight
 	 * @param receiptDate
 	 */
-	public Shipment(String shipmentID, String warehouseID, String shipmentMethod, long weight, long receiptDate){
+	public Shipment(String shipmentID, String warehouseID, String shipmentMethod, Number weight, long receiptDate){
 		this.shipmentID = shipmentID;
 		this.warehouseID = warehouseID;
 		this.shipmentMethod = shipmentMethod;
@@ -42,7 +42,7 @@ public class Shipment {
 	public String getShipmentID(){return this.shipmentID;}
 	public String getWarehouseID(){return this.warehouseID;}
 	public String getShipmentMethod(){return this.shipmentMethod;}
-	public long getWeight(){return this.weight;}
+	public Number getWeight(){return this.weight;}
 	public long getDateInMS(){return this.receiptDate;}
 	public Date getDate(){
 		Timestamp ts = new Timestamp(this.receiptDate);  

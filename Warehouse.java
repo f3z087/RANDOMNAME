@@ -26,7 +26,7 @@ public class Warehouse {
 	 * @param shipmentID
 	 * @param weight
 	 */
-	public Warehouse(String warehouseID, String shipmentID, long weight) {
+	public Warehouse(String warehouseID, String shipmentID, Number weight) {
 		this.warehouseID = warehouseID;
 		shipIDAndWeight.add(new Triplet<String, String, Number> (warehouseID, shipmentID, weight));
 		warehouseMap.put(warehouseID, this);
