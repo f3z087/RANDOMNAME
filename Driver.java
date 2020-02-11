@@ -321,7 +321,8 @@ public class Driver
 		jsonObjOut.put("warehouses", jsonArrOut);
 
 		/**
-		 * export all shipments to warehouse in single json file
+		 * export all shipments in warehouse into single json file
+		 * written in the input file's directory
 		 */
 		try{
 			PrintWriter warehouseShipmentOut = new PrintWriter(cf.getDirectory()+"\\warehouseShipmentsOutput.json");
