@@ -13,7 +13,7 @@ import org.javatuples.*;
 
 public class Warehouse {
 
-	private Map<String, Warehouse> warehouseMap = new HashMap<>();
+	static Map<String, Warehouse> warehouseMap = new HashMap<>();
 	private String warehouseID;
 	private boolean canAdd;
 	private boolean hasEnded = false;
