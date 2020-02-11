@@ -85,11 +85,14 @@ public class Driver
 		 * display all current warehouses and its contents
 		 */
 		System.out.println("\nCurrent warehouses: \n");
-		for(int i = 0; i < warehouseIDSet.size(); i++){
-			Iterator<String> it = warehouseIDSet.iterator(); 
-			while (it.hasNext()){ 
-				if(warehouseArr.get(i).getWarehouseID().equals(it.next()))
+		Iterator<String> it2 = warehouseIDSet.iterator();
+		while (it2.hasNext()){
+			String tempWareID = it2.next();
+			for(int i = 0; i < warehouseArr.size(); i++){
+				if(warehouseArr.get(i).getWarehouseID().equals(tempWareID)){
 					System.out.println(warehouseArr.get(i).toString());
+					break;
+				}
 			}
 		}
 
@@ -270,14 +273,17 @@ public class Driver
 		 * display updated warehouses and its contents
 		 */
 		System.out.println("\nUpdated warehouses: \n");
-		for(int i = 0; i < warehouseIDSet.size(); i++){
-			Iterator<String> it = warehouseIDSet.iterator(); 
-			while (it.hasNext()){ 
-				if(warehouseArr.get(i).getWarehouseID().equals(it.next()))
+		Iterator<String> it3 = warehouseIDSet.iterator();
+		while (it3.hasNext()){
+			String tempWareID = it3.next();
+			for(int i = 0; i < warehouseArr.size(); i++){
+				if(warehouseArr.get(i).getWarehouseID().equals(tempWareID)){
 					System.out.println(warehouseArr.get(i).toString());
+					break;
+				}
 			}
 		}
-
+		
 		/**
 		 * start writing json file process
 		 */
