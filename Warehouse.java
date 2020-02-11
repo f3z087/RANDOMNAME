@@ -76,7 +76,7 @@ public class Warehouse {
 	/**
 	 * enable freight receipt for additional shipments
 	 * cannot enable if already ended
-	 * @return
+	 * @return if warehousen has ended freight receipt or not
 	 */
 	public boolean enableFreightReceipt(){
 		if (this.hasEnded == true){
