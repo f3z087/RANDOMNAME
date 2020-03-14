@@ -1,0 +1,17 @@
+New feature 3 use case: 
+
+Name: Import XML file with data 
+Primary actor: Warehouse operator 
+Preconditions: 
+	1. The XML file is in the correct format. 
+	2. The XML file has shipping data. 
+	3. The software can accept XML files. 
+Success conditions: 
+	1. The warehouse operator imports XML file with shipping data into the software. 
+	2. The software parses the XML file with shipping data and stores it in their respective attributes/variables.  
+Main success scenario:  
+	1. Success conditions 1 and 2. 
+	2. There are no missing or null values from the XML file. 
+Alternate scenario(s):  
+	1. IF the data has null or missing values: 
+		a. Prompt the warehouse operator to enter in values. 

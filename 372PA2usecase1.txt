@@ -1,0 +1,25 @@
+New feature 1 use case: 
+
+Name: Store warehouse names, ids, and shipments. 
+Primary actor: Warehouse operator 
+Preconditions: 
+	1. Warehouse operator added at least three new warehouses. 
+	2. Warehouses must have names and ids. 
+	3. Warehouses can accept shipments if freight receipt is not disabled. 
+Success conditions: 
+	1. Warehouses are added successfully. 
+	2. Warehouses' names and ids are accurate for the warehouse they represent. 
+	3. Shipment(s) correlate with their correct warehouse. 
+	4. If a warehouse hasn’t disabled freight receipt, their shipment(s) are added successfully, and they correlate with the correct warehouse. 
+Main success scenario:  
+	1. Warehouse operator adds at least three new warehouses successfully. 
+	2. Each warehouse stores their name and id correctly. 
+	3. Shipments accurately correlate with their respective warehouse. 
+Alternate scenario(s):  
+	1. IF there are existing warehouses: 
+ 		a. Step 2 of main success scenario. 
+ 		b. Step 3 of main success scenario. 
+	2. IF there are null warehouse names/ids: 
+ 		a. Prompt the warehouse operator to add warehouse name and/or id. 
+ 		b. Step 2 of main success scenario. 
+ 		c. Step 3 of main success scenario. 
