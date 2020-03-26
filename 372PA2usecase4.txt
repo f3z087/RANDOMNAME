@@ -21,3 +21,4 @@ Alternate scenario(s):
 		b. Prompt warehouse operator to enter valid inputs. 
 	2. IF the warehouse operator accidently closes out of the GUI: 
 		a. The warehouse operator will run the software again. 
+		b. The warehouse operator will complete their desired intentions with the GUI.
