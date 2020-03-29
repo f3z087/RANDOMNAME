@@ -18,34 +18,40 @@ public class PrintShipments {
     private List<Shipment> listOfShipments;
 
     /**
-     * Default no argument constructor, initializes the list of shipments to be made into an JSON file
+     * Initializes the list of shipments to be made into an JSON file
      */
     public PrintShipments(List<Shipment> listOfShipments) {
         this.listOfShipments = listOfShipments;
     }
 
-    /**
-     * NEEDS TO BE REWRITTEN TO WORK AS A CLASS - NEED TO FIGURE OUT WHERE TO PUT THE PRINTED FILE
-     * Prints the listOfShipments to a json file.
-     */
+    // Method used to print shipments to JSON File
     public void printReceivedShipments() throws IOException {
 
+        //Project directory is used as the path to save to
         String savePath = System.getProperty("user.dir");
 
         JSONObject shipmentObject = new JSONObject();
-        JSONObject warehouseContents = new JSONObject();
-
-        warehouseContents.put("warehouse_id", this.listOfShipments.get(0).getWarehouseID());
-        warehouseContents.put("shipment_method", this.listOfShipments.get(0).getShipMethod());
-        warehouseContents.put("shipment_id", this.listOfShipments.get(0).getShipmentID());
-        warehouseContents.put("weight", this.listOfShipments.get(0).getWeight());
-        warehouseContents.put("receipt_date", this.listOfShipments.get(0).getReceiptDate());
 
         JSONArray shipmentData = new JSONArray();
-        shipmentData.add(warehouseContents);
 
+        // Method loops through the list of shipments provided for a given warehouse, printing them to a JSON file with a corresponding name
+        for(int i = 0; i < this.listOfShipments.size(); i++) {
+
+            JSONObject warehouseContents = new JSONObject();
+
+            warehouseContents.put("warehouse_id", this.listOfShipments.get(i).getWarehouseID());
+            warehouseContents.put("shipment_method", this.listOfShipments.get(i).getShipMethod());
+            warehouseContents.put("shipment_id", this.listOfShipments.get(i).getShipmentID());
+            warehouseContents.put("weight", this.listOfShipments.get(i).getWeight());
+
+            // Change date back to milliseconds
+
+            long timeInMS = this.listOfShipments.get(i).getReceiptDate().getTime();
+            warehouseContents.put("receipt_date", timeInMS);
+
+            shipmentData.add(warehouseContents);
+        }
         shipmentObject.put("warehouse_contents", shipmentData);
-
 
         // write json file
         try (FileWriter file = new FileWriter(savePath.toString() + "/Warehouse" + this.listOfShipments.get(0).getWarehouseID().toString() + ".json")) {
