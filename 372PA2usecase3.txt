@@ -14,4 +14,5 @@ Main success scenario:
 	2. There are no missing or null values from the XML file. 
 Alternate scenario(s):  
 	1. IF the data has null or missing values: 
-		a. Prompt the warehouse operator to enter in values. 
+		a. Prompt the warehouse operator to enter in missing values or leave it blank.
+		b. If time is null, use the current time.
