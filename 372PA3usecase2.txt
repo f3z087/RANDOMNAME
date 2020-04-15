@@ -1,0 +1,24 @@
+New feature 2 use case: 
+
+Name: Retain entered shipments and warehouse data after execution 
+Primary actor: Warehouse operator 
+Preconditions: 
+	1. The software is executable. 
+	2. The warehouse operator added warehouse and shipment data. 
+	3. The software executed error free.
+Success conditions: 
+	1. All warehouse and shipment data is retained in a file after execution. 
+	2. When the software runs again, the current warehouse and shipment data has all the data entered prior to this execution. 
+Main success scenario:  
+	1. The warehouse operator runs the application. 
+	2. The warehouse operator adds warehouse and shipment data correctly and successfully. 
+	3. The software retains all warehouse and shipment data that existed and/or were added by putting it into a file. 
+	4. The software executes successfully. 
+	5. The warehouse operator runs the application again. 
+	6. All of the existing/added data prior to the current execution is still there and is accessible by the warehouse operator. 
+Alternate scenario(s):  
+	1. IF the warehouse operator adds warehouse and shipment data on the nth execution instead of the previous ones: 
+ 		a. Step 3-6 of main success scenario. 
+	2. IF the warehouse operator adds a duplicate warehouse and/or shipment value: 
+ 		a. The software only keeps one instance of it. 
+ 		b. Step 3-6 of main success scenario. 
