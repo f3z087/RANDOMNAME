@@ -1,12 +1,10 @@
-package edu.metrostate.ics372.RANDOMNAME.model;
-
+package edu.metrostate.ics372_assignment3.model;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,29 +22,37 @@ public class PrintShipments {
         this.listOfShipments = listOfShipments;
     }
 
-    // Method used to print shipments to JSON File
-    public void printReceivedShipments() throws IOException {
+    /**
+     * Method used to print shipments to JSON file
+     */
+    public static void printReceivedShipments(String warehouseID) throws IOException {
 
-        //Project directory is used as the path to save to
-        String savePath = System.getProperty("user.dir");
+        //print the list of the warehouses shipments to a file on the device
+
+        List<Shipment> listOfShipments = WarehouseRepository.getInstance().getWarehouse(warehouseID).getListOfShipments();
+
+        //SDCard directory is used as the path to save to
+
+
+        //File file = new File(dir, "Warehouse" + warehouseIDText.getText().toString() + ".json")
 
         JSONObject shipmentObject = new JSONObject();
 
         JSONArray shipmentData = new JSONArray();
 
         // Method loops through the list of shipments provided for a given warehouse, printing them to a JSON file with a corresponding name
-        for(int i = 0; i < this.listOfShipments.size(); i++) {
+        for (Shipment listOfShipment : listOfShipments) {
 
             JSONObject warehouseContents = new JSONObject();
 
-            warehouseContents.put("warehouse_id", this.listOfShipments.get(i).getWarehouseID());
-            warehouseContents.put("shipment_method", this.listOfShipments.get(i).getShipMethod());
-            warehouseContents.put("shipment_id", this.listOfShipments.get(i).getShipmentID());
-            warehouseContents.put("weight", this.listOfShipments.get(i).getWeight());
+            warehouseContents.put("warehouse_id", listOfShipment.getWarehouseID());
+            warehouseContents.put("shipment_method", listOfShipment.getShipMethod());
+            warehouseContents.put("shipment_id", listOfShipment.getShipmentID());
+            warehouseContents.put("weight", listOfShipment.getWeight());
 
             // Change date back to milliseconds
 
-            long timeInMS = this.listOfShipments.get(i).getReceiptDate().getTime();
+            long timeInMS = listOfShipment.getReceiptDate().getTime();
             warehouseContents.put("receipt_date", timeInMS);
 
             shipmentData.add(warehouseContents);
@@ -54,7 +60,11 @@ public class PrintShipments {
         shipmentObject.put("warehouse_contents", shipmentData);
 
         // write json file
-        try (FileWriter file = new FileWriter(savePath.toString() + "/Warehouse" + this.listOfShipments.get(0).getWarehouseID().toString() + ".json")) {
+        try {
+            File sdcard = new File("sdcard");
+            File dir = new File(sdcard.getAbsolutePath() + "/WarehouseFiles/");
+            dir.mkdirs();
+            FileWriter file = new FileWriter(dir.toString() + "/Warehouse" + warehouseID + ".json");
             file.write(shipmentObject.toJSONString());
             file.flush();
         } catch (IOException e) {
